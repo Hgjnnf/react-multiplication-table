@@ -34,6 +34,7 @@ class MultTableScreen extends React.Component {
                 </header>
                 <button onClick={this.handleClick}>Update Table Size</button>
                 <MultTable tableSize={this.state.tableSize} className="MultTable"/>
+                <p>Made by Gordon Cheung, 2021</p>
             </div>
         )
     }
