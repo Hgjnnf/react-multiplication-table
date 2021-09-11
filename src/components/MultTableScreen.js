@@ -14,11 +14,16 @@ class MultTableScreen extends React.Component {
     }
 
     handleClick() {
-        let size = Number(prompt("What size do you want the table to be?: "));
-        
-        if(isNaN(size)) {
-            alert("Please enter a number!");
+        let size = Number(prompt("What size do you want the table to be? (Default is 10): "));
+
+        if(isNaN(size) || Number.isInteger(size) === false) {
+            alert("Please enter an integer!");
             size = 10;
+        }
+
+        if(size <= 0) {
+            size = 10;
+            alert("Size has to be above 0!");
         }
 
         this.setState({
