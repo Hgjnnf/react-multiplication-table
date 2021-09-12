@@ -1,6 +1,5 @@
 import React from 'react';
 import MultTable from './MultTable';
-import './MultTableScreen.css';
 
 //this component adds the update function and a title to the multiplication table
 class MultTableScreen extends React.Component {
@@ -20,16 +19,16 @@ class MultTableScreen extends React.Component {
         //prompts the user about the tableSize and converts the response(string, initially) to the number type
         let size = Number(prompt("What size do you want the table to be? (Default is 10): "));
 
-        //checks if the response is empty or non-integer and resets the size to the default is that is true
+        //checks if the response is empty or non-integer and size stays the same if that is true
         if(isNaN(size) || Number.isInteger(size) === false) {
             alert("Please enter an integer!");
-            size = 10;
+            size = this.state.tableSize;
         }
 
-        //checks if the response is smaller or equal to 0 and resets the size to default if true
-        if(size <= 0) {
-            alert("Size has to be above 0!");
-            size = 10;
+        //checks if the response is smaller or equal to 0 or greater than 100 and size stays the same if true
+        if(size <= 0 || size > 100) {
+            alert("Size has to be above 0 and less than or equal to 100!");
+            size = this.state.tableSize;
         }
 
         //sets the tableSize state to the response
