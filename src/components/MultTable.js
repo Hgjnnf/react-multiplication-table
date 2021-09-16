@@ -57,9 +57,14 @@ class MultTable extends React.Component {
         //generates an array from 0 to tableSize: [0, 1, 2, ..., tableSize]
         const sizeArray = Array.from(Array(tableSize + 1).keys());
 
+        const tableStyle = {
+            width: 40 * tableSize + 'px',
+            height: 40 * tableSize + 'px',
+        };
+
         return (
             <div className="mult-table">
-                <table>
+                <table style={tableStyle}>
                     <tbody>{
                         //generates rows using the .map array iterator
                         sizeArray.map(
